@@ -1,4 +1,5 @@
--- Remember to connect GPIO16 (D0) and RST for deep sleep function
+-- Remember to connect GPIO16 (D0) and RST for deep sleep function,
+-- better though a SB diode anode to RST cathode to GPIO16 (D0).
 
 --# Settings #
 dofile("nodevars.lua")

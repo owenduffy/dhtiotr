@@ -18,5 +18,10 @@ Emoncms: req="?node="..nodeid.."&csv="..temperature..","..humidity.."&apikey="..
 
 GET requests are usually fairly easy to get going, but you may find the RESTED
 add-in for Firefox and Chrome to be useful, also http://httpbin.org/get for
-testing. 
+testing.
+
+The deep sleep function used depends on an external connection which you must
+make for it to work properly: connect a SB or germainium diode anode to RST,
+cathode to GPIO16 (D0).
+ 
 
