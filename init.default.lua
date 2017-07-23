@@ -18,6 +18,13 @@ cfgvars={
 "apikey",
 }
 
+function httpgetreq() 
+  req=rest_url.."?field1="..temperature.."&field2="..humidity.."&api_key="..apikey
+  --  req="?node="..nodeid.."&csv="..temperature..","..humidity.."&apikey="..apikey
+  print("req:"..req)
+  return req
+end
+
 print("\n\nHold Pin00 low for 1s to stop boot.")
 print("\n\nHold Pin00 low for 5s for config mode.")
 tmr.delay(1000000)

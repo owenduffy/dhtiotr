@@ -56,10 +56,7 @@ function srest()
   else
     print("WiFi connected...")
   get_sensor_Data()
-
-  httpr="?node="..nodeid.."&csv="..temperature..","..humidity.."&apikey="..apikey
-  print("req:"..rest_url..httpr)
-  http.get(rest_url..httpr,nil,function(code, data)
+  http.get(httpgetreq(),nil,function(code, data)
     if (code<0) then
       print("HTTP request failed")
     else
