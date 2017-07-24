@@ -15,8 +15,3 @@ wifi_signal_mode = wifi.PHYMODE_G
 client_ip=""
 client_netmask=""
 client_gateway=""
---- INTERVAL ---
--- In milliseconds. Remember that the sensor reading, 
--- reboot and wifi reconnect takes a few seconds
---time_between_sensor_readings = 60000-6000
-time_between_sensor_readings = 60000

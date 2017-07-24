@@ -3,6 +3,7 @@
 cfgdefs={
 "",
 "",
+60,
 "",
 4,
 "",
@@ -12,6 +13,7 @@ cfgdefs={
 cfgvars={
 "wifi_SSID",
 "wifi_password",
+"meas_period",
 "nodeid",
 "dhtdata",
 "rest_url",

@@ -71,10 +71,10 @@ end
 
 function slp()
   print(tmr.now())
-  node.dsleep(time_between_sensor_readings*1000-tmr.now()+8100,2)             
+  node.dsleep(meas_period*1000000-tmr.now()+8100,2)             
 end
 
 print("dhtiot starting...")
 swf()
 -- Watchdog loop, will force deep sleep the operation somehow takes to long
-tmr.alarm(1,30000,1,function() node.dsleep(time_between_sensor_readings*1000) end)
+tmr.alarm(1,30000,1,function() node.dsleep(meas_period*1000000) end)
