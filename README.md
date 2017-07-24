@@ -24,4 +24,12 @@ The deep sleep function used depends on an external connection which you must
 make for it to work properly: connect a SB or germainium diode anode to RST,
 cathode to GPIO16 (D0).
  
+Tested on:
+NodeMCU custom build by frightanic.com
+	branch: master
+	commit: c8ac5cfb912ff206b03dd7c60ffbb2dafb83fe5e
+	SSL: false
+	modules: adc,dht,encoder,file,gpio,http,mqtt,net,node,ow,tmr,uart,wifi
+ build 	built on: 2017-07-22 02:44
+ powered by Lua 5.1.4 on SDK 2.1.0(116b762)
 
