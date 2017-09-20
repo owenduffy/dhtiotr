@@ -56,17 +56,24 @@ function srest()
     print("No Wifi connection...")
   else
     print("WiFi connected...")
+  end
   get_sensor_Data()
-  http.get(httpgetreq(),nil,function(code, data)
-    if (code<0) then
-      print("HTTP request failed")
-    else
-      print(code,data)
-    end
-    tmr.alarm(0,500,tmr.ALARM_SINGLE,slp)
-  end)
+  req,body=httpreq()
+  if(body=="") then
+    http.get(req,nil,httperr)
+  else
+    http.post(req,nil,body,httperr)
   end
   print("srest done...")
+end
+
+function httperr(code,data)
+  if (code<0) then
+    print("HTTP request failed")
+  else
+    print(code,data)
+  end
+  tmr.alarm(0,500,tmr.ALARM_SINGLE,slp)
 end
 
 function slp()

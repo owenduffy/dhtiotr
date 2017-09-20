@@ -20,11 +20,11 @@ cfgvars={
 "apikey",
 }
 
-function httpgetreq() 
+function httpreq() 
   req=rest_url.."?field1="..temperature.."&field2="..humidity.."&api_key="..apikey
-  --  req="?node="..nodeid.."&csv="..temperature..","..humidity.."&apikey="..apikey
-  print("req:"..req)
-  return req
+  body=""
+  print("req:"..req.."\nbody:"..body)
+  return req,body
 end
 
 print("\n\nHold Pin00 low for 1s to stop boot.")
