@@ -50,7 +50,7 @@ if pcall(function ()
 --    dofile("config.lc")
     dofile("config.lua")
     end) then
-  dofile("dhtiot.lua")
+  dofile("app.lua")
 else
   print("Starting wifi config mode...")
   dofile("wifi_setup.lua")
