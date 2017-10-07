@@ -39,7 +39,7 @@ end
 function swf()
 --  print("wifi_SSID: "..wifi_SSID)
 --  print("wifi_password: "..wifi_password)
-  wifi.eventmon.register(wifi.eventmon.STA_GOT_IP,srest)
+  wifi.eventmon.register(wifi.eventmon.STA_GOT_IP,cbsrest)
   wifi.setmode(wifi.STATION) 
   wifi.setphymode(wifi_signal_mode)
   if client_ip ~= "" then
@@ -49,7 +49,7 @@ function swf()
   print("swf done...")
 end
 
-function srest()
+function cbsrest()
   print(tmr.now())
   print("wifi.sta.status()",wifi.sta.status())
   if wifi.sta.status() ~= 5 then
@@ -60,28 +60,29 @@ function srest()
   get_sensor_Data()
   req,body=httpreq()
   if(body=="") then
-    http.get(req,nil,httperr)
+    http.get(req,nil,cbhttpdone)
   else
-    http.post(req,nil,body,httperr)
+    http.post(req,nil,body,cbhttpdone)
   end
-  print("srest done...")
+  print("cbsrest done...")
 end
 
-function httperr(code,data)
+function cbhttpdone(code,data)
   if (code<0) then
     print("HTTP request failed")
   else
     print(code,data)
   end
-  tmr.alarm(0,500,tmr.ALARM_SINGLE,slp)
+  tmr.alarm(0,500,tmr.ALARM_SINGLE,cbslp)
 end
 
-function slp()
+function cbslp()
   print(tmr.now())
   node.dsleep(meas_period*1000000-tmr.now()+8100,2)             
 end
 
-print("dhtiot starting...")
+print("app starting...")
+--watchdog will force deep sleep loop if the operation somehow takes to long
+tmr.alarm(1,30000,1,cbslp)
+--setup wifi
 swf()
--- Watchdog loop, will force deep sleep the operation somehow takes to long
-tmr.alarm(1,30000,1,function() node.dsleep(meas_period*1000000) end)
