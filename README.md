@@ -2,7 +2,9 @@
 
 To use the code, copy init.default.lua to init.lua, and nodevars.default.lua to nodevars.lua and customise the latter to suit your needs.
 
-The code is intended to support HTTP GET.
+![alt text](dht22iotr01.png "Flow chart")
+
+The code supports HTTP GET and POST.
 
 Example URLs for the REST host are:
 * Thingspeak: http://api.thingspeak.com/update
@@ -26,4 +28,10 @@ NodeMCU custom build by frightanic.com
 	modules: adc,dht,encoder,file,gpio,http,mqtt,net,node,ow,tmr,uart,wifi
  build 	built on: 2017-07-22 02:44
  powered by Lua 5.1.4 on SDK 2.1.0(116b762)
+
+
+
+
+
+
 
