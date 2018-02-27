@@ -84,5 +84,9 @@ end
 print("app starting...")
 --watchdog will force deep sleep loop if the operation somehow takes to long
 tmr.alarm(1,30000,1,cbslp)
+meas_period=tonumber(meas_period)
+if(meas_period>60) then
+  get_sensor_Data()
+end
 --setup wifi
 swf()
