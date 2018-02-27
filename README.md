@@ -15,12 +15,12 @@ Enter your own APIKEY as appropriate.
 Edit the httpgetreq() definitition in init.lua to suit your REST host, eg:
 
 * Thingspeak:
-```
+```lua
 req=rest_url.."?field1="..temperature.."&field2="..humidity.."&api_key="..apikey
 ```
 
 * Emoncms:
-```
+```lua
 req="?node="..nodeid.."&csv="..temperature..","..humidity.."&apikey="..apikey
 ```
  
